@@ -1,65 +1,79 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s ease;
 }
 
 body {
-  font-family: "Jost", sans-serif;
-  color: white;
-  background-color: black;
+    font-family: "Jost", sans-serif;
+    color: white;
+    background-color: black;
 }
 
 button {
-  background: cadetblue;
-  border: none;
-  color: white;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  transition: 0.5s ease;
+    background: cadetblue;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 50px;
 }
 
 form input {
-  color: white;
+    color: white;
     margin: 2rem;
-    flex: 1;
-  background-color: black;
+    background-color: black;
     border: 2px solid cadetblue;
     border-radius: 10px;
     padding: 1rem 2rem;
 }
 
 form input:active {
-  background: rgb(214, 183, 125);
-  transition: .5s ease;
+    background: rgb(214, 183, 125);
 }
-
-form h2 {
+form h3 {
+    text-align: center;
     flex: 1;
     margin: 2rem;
 }
 
+.error {
+    background-color: #dd737310;
+}
+
 button:hover {
-  background: rgb(214, 183, 125);
-  transition: 0.5s ease;
+    background: rgb(214, 183, 125);
 }
 
 main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-
-.book-form {
+.form-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-info-form {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.book-form-section {
+.form-section {
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.form-inputs,
+.form-titles {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,22 +81,36 @@ main {
 }
 
 main h1 {
-  margin: 4rem;
+    margin: 4rem;
 }
 
-.book_container {
-  padding: 2rem;
-  margin: 4rem;
-  border-radius: 10px;
-  background-color: cadetblue;
-  opacity: 0.9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.book-container {
+    padding: 1rem;
+    margin: 4rem;
+    border-radius: 10px;
+    background-color: cadetblue;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-container:hover {
+    padding: 1.25rem;
+    border-radius: 15px;
 }
 
 .book-container h2,
 p {
-  text-align: center;
+    text-align: center;
+}
+
+#delete-button {
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem;
+}
+
+#delete-button:hover {
+    background-color: #dd7373;
 }
