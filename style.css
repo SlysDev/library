@@ -7,30 +7,36 @@
 
 body {
     font-family: "Jost", sans-serif;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: var(--cultured);
+    --orange: rgb(214, 183, 125);
+    --cultured: #eff1edff;
+    --kombu-green: #373d20ff;
+    --spanish-bistre: #717744ff;
+    --sage: #bcbd8bff;
+    --umber: #766153ff;
+    --light-coral: #ee7674;
 }
 
 button {
-    background: cadetblue;
+    background: var(--spanish-bistre);
+    color: var(--cultured);
     border: none;
-    color: white;
     font-weight: bold;
     padding: 1rem 2rem;
     border-radius: 50px;
 }
 
 form input {
-    color: white;
     margin: 2rem;
-    background-color: black;
-    border: 2px solid cadetblue;
+    background-color: var(--cultured);
+    border: 2px solid var(--spanish-bistre);
     border-radius: 10px;
     padding: 1rem 2rem;
 }
 
 form input:active {
-    background: rgb(214, 183, 125);
+    background: var(--sage);
 }
 form h3 {
     text-align: center;
@@ -38,12 +44,8 @@ form h3 {
     margin: 2rem;
 }
 
-.error {
-    background-color: #dd737310;
-}
-
 button:hover {
-    background: rgb(214, 183, 125);
+    background: var(--spanish-bistre);
 }
 
 main {
@@ -85,11 +87,10 @@ main h1 {
 }
 
 .book-container {
-    padding: 1rem;
+    padding: 1rem 4rem;
     margin: 4rem;
     border-radius: 10px;
-    background-color: cadetblue;
-    opacity: 0.9;
+    background-color: var(--spanish-bistre);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +98,7 @@ main h1 {
 }
 
 .book-container:hover {
-    padding: 1.25rem;
+    padding: 1.25rem 5rem;
     border-radius: 15px;
 }
 
@@ -107,10 +108,24 @@ p {
 }
 
 #delete-button {
+    display: inline;
+    padding: 0.25rem 0.5rem;
+}
+
+.small-button {
+    display: inline;
     padding: 0.25rem 0.5rem;
     margin: 0.5rem;
 }
 
+.small-button:hover {
+    background-color: var(--sage);
+}
+
 #delete-button:hover {
-    background-color: #dd7373;
+    background-color: var(--light-coral);
+}
+
+.finished-book {
+    background-color: var(--sage);
 }

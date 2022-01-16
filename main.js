@@ -49,7 +49,6 @@ function Book(title, author, desc, pages, read) {
 function error() {
     body.classList.add("error");
 }
-
 function createForm() {
     container.style.display = "none";
     bookInfoForm.style.display = "block";
@@ -100,18 +99,26 @@ function displayBooks() {
         let description = document.createElement("p");
         description.textContent = book.desc;
         let deleteBtn = document.createElement("button");
-        deleteBtn.id = "small-button";
+        deleteBtn.id = "delete-button";
         deleteBtn.textContent = "x";
         deleteBtn.addEventListener("click", function () {
             display.removeChild(bookContainer);
             myLibrary.splice(book.indexOf(book));
         });
         let readBtn = document.createElement("button");
-        readBtn.class = "small-button";
+        readBtn.classList.add("small-button");
+        readBtn.addEventListener("click", function () {
+            book.read = !book.read;
+        });
+        readBtn.textContent = "Read";
+        bookContainer.appendChild(deleteBtn);
         bookContainer.appendChild(title);
         bookContainer.appendChild(description);
-        bookContainer.appendChild(deleteBtn);
+        bookContainer.appendChild(readBtn);
         display.appendChild(bookContainer);
+        if (book.read == true) {
+            bookContainer.classList.add("finished-book");
+        }
     });
 }
 
