@@ -19,7 +19,7 @@ body {
 }
 
 button {
-    background: var(--spanish-bistre);
+    background-color: transparent;
     color: var(--cultured);
     border: none;
     font-weight: bold;
@@ -90,7 +90,7 @@ main h1 {
     padding: 1rem 4rem;
     margin: 4rem;
     border-radius: 10px;
-    background-color: var(--spanish-bistre);
+    background-color: var(--umber);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,5 +127,21 @@ p {
 }
 
 .finished-book {
+    background-color: var(--spanish-bistre);
+}
+
+#add-btn {
+    background-color: var(--spanish-bistre);
+}
+
+#add-btn:hover {
+    background-color: var(--sage);
+}
+
+.submit-btn {
+    background-color: var(--spanish-bistre);
+}
+
+.submit-btn:hover {
     background-color: var(--sage);
 }

@@ -86,6 +86,7 @@ function createForm() {
     formTextSection.appendChild(bookInfoFormInputs);
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
+    submitBtn.classList.add("submit-btn");
     formSubmitSection.appendChild(submitBtn);
 }
 
@@ -109,6 +110,7 @@ function displayBooks() {
         readBtn.classList.add("small-button");
         readBtn.addEventListener("click", function () {
             book.read = !book.read;
+            bookContainer.classList.toggle("finished-book");
         });
         readBtn.textContent = "Read";
         bookContainer.appendChild(deleteBtn);
@@ -117,7 +119,6 @@ function displayBooks() {
         bookContainer.appendChild(readBtn);
         display.appendChild(bookContainer);
         if (book.read == true) {
-            bookContainer.classList.add("finished-book");
         }
     });
 }
