@@ -38,12 +38,8 @@ let body = document.querySelector("body");
 
 // Display a hlep message if there are no books in the library
 
-function Book(title, author, desc, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.desc = desc;
-    this.pages = pages;
-    this.read = read;
+const Book = function (title, author, desc, pages, read) {
+    return { title, author, desc, pages, read };
 }
 
 function error() {
@@ -136,13 +132,13 @@ submitBtn.addEventListener("click", function () {
     ) {
         return;
     }
-    let book = new Book(
+    let book = Book(
         titleInput.value,
         descriptionInput.value,
         authorInput.value,
         pagesInput.value,
         false
-    );
+    )
     console.log(book);
     myLibrary.push(book);
     displayBooks();
