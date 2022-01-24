@@ -38,8 +38,14 @@ let body = document.querySelector("body");
 
 // Display a hlep message if there are no books in the library
 
-const Book = function (title, author, desc, pages, read) {
-    return { title, author, desc, pages, read };
+class Book {
+    constructor(title, author, desc, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.desc = desc;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function error() {
@@ -86,38 +92,44 @@ function createForm() {
     formSubmitSection.appendChild(submitBtn);
 }
 
-function displayBooks() {
-    display.textContent = "";
-    myLibrary.forEach(function (book) {
-        let bookContainer = document.createElement("div");
-        bookContainer.classList.add("book-container");
-        let title = document.createElement("h2");
-        title.textContent = book.title;
-        let description = document.createElement("p");
-        description.textContent = book.desc;
-        let deleteBtn = document.createElement("button");
-        deleteBtn.id = "delete-button";
-        deleteBtn.textContent = "x";
-        deleteBtn.addEventListener("click", function () {
-            display.removeChild(bookContainer);
-            myLibrary.splice(book.indexOf(book));
+class controller {
+    displayBooks() {
+        display.textContent = "";
+        myLibrary.forEach(function (book) {
+            let bookContainer = document.createElement("div");
+            bookContainer.classList.add("book-container");
+            let title = document.createElement("h2");
+            title.textContent = book.title;
+            let description = document.createElement("p");
+            description.textContent = book.desc;
+            let deleteBtn = document.createElement("button");
+            deleteBtn.id = "delete-button";
+            deleteBtn.textContent = "x";
+            deleteBtn.addEventListener("click", function () {
+                display.removeChild(bookContainer);
+                myLibrary.splice(myLibrary.indexOf(book));
+            });
+            let readBtn = document.createElement("button");
+            readBtn.classList.add("small-button");
+            readBtn.addEventListener("click", function () {
+                book.read = !book.read;
+                bookContainer.classList.toggle("finished-book");
+            });
+            readBtn.textContent = "Read";
+            bookContainer.appendChild(deleteBtn);
+            bookContainer.appendChild(title);
+            bookContainer.appendChild(description);
+            bookContainer.appendChild(readBtn);
+            display.appendChild(bookContainer);
+            if (book.read == true) {
+            }
         });
-        let readBtn = document.createElement("button");
-        readBtn.classList.add("small-button");
-        readBtn.addEventListener("click", function () {
-            book.read = !book.read;
-            bookContainer.classList.toggle("finished-book");
-        });
-        readBtn.textContent = "Read";
-        bookContainer.appendChild(deleteBtn);
-        bookContainer.appendChild(title);
-        bookContainer.appendChild(description);
-        bookContainer.appendChild(readBtn);
-        display.appendChild(bookContainer);
-        if (book.read == true) {
-        }
-    });
+    }
 }
+
+let displayController = new controller();
+
+
 
 addBtn.addEventListener("click", function () {
     createForm();
@@ -132,7 +144,7 @@ submitBtn.addEventListener("click", function () {
     ) {
         return;
     }
-    let book = Book(
+    let book = new Book(
         titleInput.value,
         descriptionInput.value,
         authorInput.value,
@@ -141,7 +153,7 @@ submitBtn.addEventListener("click", function () {
     )
     console.log(book);
     myLibrary.push(book);
-    displayBooks();
+    displayController.displayBooks();
     titleInput.value = "";
     descriptionInput.value = "";
     authorInput.value = "";
