@@ -66,15 +66,19 @@ function createForm() {
     bookInfoForm.appendChild(formSubmitSection);
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("name", "title");
+    titleInput.required = true;
     bookInfoFormInputs.appendChild(titleInput);
     descriptionInput.setAttribute("type", "text");
     descriptionInput.setAttribute("name", "description");
+    descriptionInput.required = true;
     bookInfoFormInputs.appendChild(descriptionInput);
     authorInput.setAttribute("type", "text");
     authorInput.setAttribute("name", "author");
+    authorInput.required = true;
     bookInfoFormInputs.appendChild(authorInput);
-    pagesInput.setAttribute("type", "text");
+    pagesInput.setAttribute("type", "number");
     pagesInput.setAttribute("name", "pages");
+    pagesInput.required = true;
     bookInfoFormInputs.appendChild(pagesInput);
     titleText.textContent = "Title";
     descriptionText.textContent = "Description";
@@ -121,15 +125,11 @@ class controller {
             bookContainer.appendChild(description);
             bookContainer.appendChild(readBtn);
             display.appendChild(bookContainer);
-            if (book.read == true) {
-            }
         });
     }
 }
 
 let displayController = new controller();
-
-
 
 addBtn.addEventListener("click", function () {
     createForm();
@@ -137,10 +137,10 @@ addBtn.addEventListener("click", function () {
 
 submitBtn.addEventListener("click", function () {
     if (
-        titleInput.value == "" ||
-        descriptionInput.value == "" ||
-        authorInput.value == "" ||
-        pagesInput.value == ""
+        !titleInput.checkValidity() ||
+        !descriptionInput.checkValidity() ||
+        !authorInput.checkValidity() ||
+        !pagesInput.checkValidity()
     ) {
         return;
     }
@@ -150,7 +150,7 @@ submitBtn.addEventListener("click", function () {
         authorInput.value,
         pagesInput.value,
         false
-    )
+    );
     console.log(book);
     myLibrary.push(book);
     displayController.displayBooks();
